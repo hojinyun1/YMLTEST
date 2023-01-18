@@ -16,6 +16,11 @@ jobs:
           echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
           echo "Tag name from github.ref_name: ${{  github.ref_name }}"
 
+      - name: Generate Environment Variables File for Production
+        run: |
+          echo "NEXT_PUBLIC_WEB_VERSION=${{  github.ref_name }}" >> .env.production
+        env: NEXT_PUBLIC_WEB_VERSION=${{  github.ref_name }}
+
       # Install project dependencies, test and build
       - name: Install dependencies
         run: npm install
