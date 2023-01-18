@@ -19,8 +19,7 @@ jobs:
       - name: Generate Environment Variables File for Production
         run: |
           echo "NEXT_PUBLIC_WEB_VERSION=${{  github.ref_name }}" >> .env
-
-        env: NEXT_PUBLIC_WEB_VERSION=${{  github.ref_name }}
+        env: NEXT_PUBLIC_WEB_VERSION: ${{  github.ref_name }}
 
       # Install project dependencies, test and build
       - name: Install dependencies
