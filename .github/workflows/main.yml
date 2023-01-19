@@ -11,14 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: GitHub Tag Name example
-        run: |
-          echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
-          echo "Tag name from github.ref_name: ${{  github.ref_name }}"
-
       - name: Generate Environment Variables File for Production
-        run: |
-          echo "NEXT_PUBLIC_WEB_VERSION=${{  github.ref_name }}" >> .env
         env:
           NEXT_PUBLIC_WEB_VERSION: ${{  github.ref_name }}
 
